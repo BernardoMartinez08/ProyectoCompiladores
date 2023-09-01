@@ -7,10 +7,9 @@ options {caseInsensitive = true;}
 
 main_procedure:
     PROGRAM ID SEMI_COLON
-    (
-        (variable)
-        (constant)
-    )?
+    (variable)?
+    (constant)?
+
     BEGIN
     instructions*
     END '.' EOF;

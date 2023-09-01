@@ -96,13 +96,12 @@ variable_type:
 //PROCEDURE SINTAXIS
 procedure_declaration:
     PROCEDURE ID SEMI_COLON
-    (
-        (variable)
-        (constant)
-    )?
+       (variable)?
+       (constant)?
+
     procedure_body;
 
-procedure_body: BEGIN instructions* END SEMI_COLON EOF;
+procedure_body: BEGIN instructions* END SEMI_COLON;
 
 procedure_call: ID BRACKET_LEFT (ID | NUMBERS) BRACKET_RIGHT SEMI_COLON;
 
