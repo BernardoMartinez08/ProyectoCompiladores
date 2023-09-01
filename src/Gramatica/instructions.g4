@@ -29,6 +29,17 @@ while_code_block: BEGIN instructions* END | instructions;
 repeat: REPEAT instructions* UNTIL ID (compare_operators) (ID | NUMBERS) SEMI_COLON;
 
 
+//FUNCTION WRITE SINTAXIS
+write_function: 'write' '(' ID (COMA (ID | NUMBERS | CADENA_COMILLA_SIMPLE)) ')' SEMI_COLON;
+
+
+//FUNCTION READ SINTAXIS
+read_function: 'read' '(' ID ')' SEMI_COLON;
+
+
+
+
+
 
 
 

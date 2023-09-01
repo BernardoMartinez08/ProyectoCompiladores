@@ -2,14 +2,32 @@ grammar declarations;
 
 import tokens, instructions;
 
-instructions:  if | variable_assignment | for | while | repeat ;
+instructions:
+    if
+    | variable_assignment
+    | for
+    | while
+    | repeat
+    | write_function
+    | read_function
+    | procedure_declaration
+    | procedure_call;
 
 
 
 //VARIABLE SINTAXIS
 variable: VAR variable_types+;
+constant: CONSTANT constant_types+;
 
-variable_types: simple_variable | variable_list COLON variable_type SEMI_COLON | array_variable | arraylist_variable | const_Char | const_Str;
+variable_types:
+    simple_variable
+    | variable_list COLON variable_type SEMI_COLON
+    | array_variable
+    | arraylist_variable;
+
+constant_types:
+    const_str
+    | const_char;
 
 simple_variable: ID COLON variable_type SEMI_COLON;
 
@@ -36,13 +54,9 @@ array_type:
 
 
 //CONSTANTS SINTAXIS
-const_Char:
-    CONST_CHAR ID  EQUAL '\'' LETTERS '\'' SEMI_COLON
-    | CONST_CHAR ID  EQUAL'\'' LETTERS '\'' SEMI_COLON const_Char;
+const_char: CONST_CHAR COLON ID  EQUAL  '\'' LETTERS '\'' SEMI_COLON;
 
-const_Str:
-    CONST_STR ID '=' CADENA_COMILLA_SIMPLE
-    | CONST_STR ID '=' CADENA_COMILLA_SIMPLE const_Str;
+const_str:  CONST_STR COLON ID EQUAL CADENA_COMILLA_SIMPLE SEMI_COLON;
 
 
 //CONDITION SINTAXIS
@@ -60,19 +74,39 @@ compare_operators:
 
 not_condition: NOT BRACKET_LEFT ID ( AND | OR | compare_operators) (ID | NUMBERS) BRACKET_RIGHT;
 
+//MATH OPERATIONS SINTAXIS
+expression: term ( (PLUS | MINUS) term )*;
 
+term: factor ( (MULTIPLY | DIVIDE) factor )*;
 
 factor:
     NUMBERS
     | ID
     | LETTERS
-    | BRACKET_LEFT condition BRACKET_RIGHT;
+    | BRACKET_LEFT condition BRACKET_RIGHT
+    | '(' expression ')';
 
 variable_type:
     INTEGER
     | CHAR
     | STRING
     | BOOLEAN;
+
+
+//PROCEDURE SINTAXIS
+procedure_declaration:
+    PROCEDURE ID SEMI_COLON
+    (
+        (variable)
+        (constant)
+    )?
+    procedure_body;
+
+procedure_body: BEGIN instructions* END SEMI_COLON EOF;
+
+procedure_call: ID BRACKET_LEFT (ID | NUMBERS) BRACKET_RIGHT SEMI_COLON;
+
+
 
 
 

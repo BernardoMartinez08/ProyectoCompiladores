@@ -5,8 +5,12 @@ import declarations, instructions, tokens;
 
 options {caseInsensitive = true;}
 
-main_procedure: PROGRAM ID SEMI_COLON
-       (variable)?
-       BEGIN
-       instructions*
-       END '.' EOF;
+main_procedure:
+    PROGRAM ID SEMI_COLON
+    (
+        (variable)
+        (constant)
+    )?
+    BEGIN
+    instructions*
+    END '.' EOF;
