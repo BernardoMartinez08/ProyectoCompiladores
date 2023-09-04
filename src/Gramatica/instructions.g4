@@ -16,12 +16,12 @@ statement_List:
 
 
 //INSTRUCTION FOR SINTAXIS
-for: FOR (ID | LETTERS) ASSIGN (ID | NUMBERS | LETTERS) 'to' (ID | NUMBERS) 'do' for_code_block;
+for: FOR (ID | LETTERS) ASSIGN (ID | NUMBERS | LETTERS) TO (ID | NUMBERS) TO for_code_block;
 for_code_block: BEGIN instructions* END | instructions;
 
 
 //INSTRUCTION WHILE SINTAXIS
-while: WHILE ID (compare_operators) (ID | NUMBERS) 'do' while_code_block ;
+while: WHILE ID (compare_operators) (ID | NUMBERS) DO while_code_block ;
 while_code_block: BEGIN instructions* END | instructions;
 
 
@@ -30,11 +30,11 @@ repeat: REPEAT instructions* UNTIL ID (compare_operators) (ID | NUMBERS) SEMI_CO
 
 
 //FUNCTION WRITE SINTAXIS
-write_function: 'write' '(' ID (COMA (ID | NUMBERS | CADENA_COMILLA_SIMPLE)) ')' SEMI_COLON;
+write_function: WRITE BRACKET_LEFT ID (COMA (ID | NUMBERS | CADENA_COMILLA_SIMPLE)) BRACKET_RIGHT SEMI_COLON;
 
 
 //FUNCTION READ SINTAXIS
-read_function: 'read' '(' ID ')' SEMI_COLON;
+read_function: READ BRACKET_LEFT ID BRACKET_RIGHT SEMI_COLON;
 
 
 

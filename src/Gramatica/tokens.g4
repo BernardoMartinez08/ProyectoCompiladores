@@ -1,15 +1,22 @@
 grammar tokens;
 
 //PROCEDURE TOKENS
-PROCEDURE:'procedure';
+PROCEDURE: 'procedure';
+
+//FUNCTION TOKENS
+FUNCTION: 'function';
+READ: 'read';
+WRITE: 'write';
 
 
 //FOR TOKENS
-FOR:'for';
+FOR: 'for';
+TO: 'to';
 
 
 //WHILE TOKENS
-WHILE:'while';
+WHILE: 'while';
+DO: 'do';
 
 
 //REPEAT TOKENS
@@ -50,7 +57,6 @@ NOT :'not';
 //MAIN TOKENS
 BEGIN:'begin';
 END:'end';
-FUNCTION:'Function';
 PROGRAM:'program';
 
 
@@ -75,6 +81,9 @@ CONST_STR: 'conststr';
 COLON: ':';
 SEMI_COLON: ';';
 COMA: ',';
+DOBLEDOTS: '..';
+QUATATION_MARK: '\'';
+DOT: '.';
 NUMBERS: [0-9]+;
 LETTERS: [a-zA-Z];
 ID: [a-zA-Z_] [a-zA-Z0-9_]+ [a-zA-Z0-9];

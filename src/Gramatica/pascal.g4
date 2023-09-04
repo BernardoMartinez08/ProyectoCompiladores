@@ -12,4 +12,4 @@ main_procedure:
 
     BEGIN
     instructions*
-    END '.' EOF;
+    END DOT EOF;
