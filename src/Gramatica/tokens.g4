@@ -7,6 +7,7 @@ PROCEDURE: 'procedure';
 FUNCTION: 'function';
 READ: 'read';
 WRITE: 'write';
+RETURN: 'return';
 
 
 //FOR TOKENS
@@ -32,6 +33,7 @@ BRACKET_RIGHT:')';
 IF:'if';
 THEN: 'then';
 ELSE: 'else';
+ELSEIF: 'else if';
 
 
 //OPERADORES ARITMETICOS

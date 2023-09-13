@@ -10,9 +10,7 @@ instructions:
     | repeat
     | write_function
     | read_function
-    | procedure_declaration
     | procedure_call
-    | function_declaration
     | function_call;
 
 
@@ -101,36 +99,39 @@ variable_type:
 //FUNCTION SINTAXIS
 arguments: (expression (COMA expression)*)?;
 
+parameters: (parameter (COMA parameter)*)?;
+
+parameter: ID COLON variable_type;
+
 function_declaration:
-    FUNCTION ID BRACKET_LEFT arguments BRACKET_RIGHT
-    COLON variable_type SEMI_COLON
+    FUNCTION ID BRACKET_LEFT parameters BRACKET_RIGHT
+    (COLON variable_type)?
+    SEMI_COLON
     function_body;
 
 function_body:
     BEGIN
+        (variable)*
         instructions*
+        RETURN expression SEMI_COLON
     END SEMI_COLON;
 
-// Parser rules
-function_call: ID BRACKET_LEFT arguments BRACKET_RIGHT SEMI_COLON;
+function_call: ID BRACKET_LEFT arguments BRACKET_RIGHT;
+
 
 
 //PROCEDURE SINTAXIS
 procedure_declaration:
-    PROCEDURE ID SEMI_COLON
-       (variable)?
-       (constant)?
-
+    PROCEDURE ID BRACKET_LEFT parameters BRACKET_RIGHT SEMI_COLON
+    (variable)*
+    (constant)*
     procedure_body;
 
 procedure_body:
     BEGIN
+        (variable)*
         instructions*
     END SEMI_COLON;
 
-procedure_call: ID BRACKET_LEFT (ID | NUMBERS) BRACKET_RIGHT SEMI_COLON;
-
-
-
-
+procedure_call: ID BRACKET_LEFT arguments BRACKET_RIGHT;
 

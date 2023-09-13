@@ -9,6 +9,9 @@ main_procedure:
     PROGRAM ID SEMI_COLON
     (variable)?
     (constant)?
+    (function_declaration)*
+    (procedure_declaration)*
+
 
     BEGIN
     instructions*
