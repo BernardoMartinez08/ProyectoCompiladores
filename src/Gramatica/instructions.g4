@@ -4,7 +4,7 @@ import tokens, declarations;
 
 //VARIABLE ASSIGNMENT SINTAXIS
 
-variable_assignment: ID '=' expression SEMI_COLON;
+variable_assignment: ID ':=' expression SEMI_COLON;
 
 
 //INSTRUCTION IF SINTAXIS
