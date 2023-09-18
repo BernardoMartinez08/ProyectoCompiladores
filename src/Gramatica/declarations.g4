@@ -16,28 +16,33 @@ instructions:
 
 
 //VARIABLE SINTAXIS
-variable: VAR variable_types+;
+variable: VAR variable_declaration+;
 constant: CONSTANT constant_types+;
-
-variable_types:
-    simple_variable
-    | variable_list COLON variable_type SEMI_COLON
-    | array_variable
-    | arraylist_variable;
 
 constant_types:
     const_str
     | const_char;
 
-simple_variable: ID COLON variable_type SEMI_COLON;
+variable_declaration:
+    variable_list COLON variable_type SEMI_COLON
+    | array_variable
+    | arraylist_variable;
 
-variable_list:
-    ID COMA variable_list
-    | ID;
+variable_list: (variable_item (COMA variable_item)*)?;
+
+variable_item: ID;
+
+variable_type:
+    INTEGER
+    | CHAR
+    | STRING
+    | BOOLEAN;
 
 
 //ARRAY SINTAXIS
-array_variable: array_one_dimension | array_two_dimension;
+array_variable:
+    array_one_dimension
+    | array_two_dimension;
 
 arraylist_variable:
     variable_list COLON ARRAY CORCHETE_LEFT NUMBERS DOBLEDOTS NUMBERS CORCHETE_RIGHT OF variable_type SEMI_COLON
@@ -87,13 +92,6 @@ factor:
     | LETTERS
     | BRACKET_LEFT condition BRACKET_RIGHT
     | BRACKET_LEFT expression BRACKET_RIGHT;
-
-variable_type:
-    INTEGER
-    | CHAR
-    | STRING
-    | BOOLEAN;
-
 
 
 //FUNCTION SINTAXIS
