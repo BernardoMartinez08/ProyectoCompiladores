@@ -2,11 +2,6 @@ grammar instructions;
 
 import tokens, declarations;
 
-//VARIABLE ASSIGNMENT SINTAXIS
-
-variable_assignment: ID ':=' expression SEMI_COLON;
-
-
 //INSTRUCTION IF SINTAXIS
 if_statement: IF condition THEN if_block (ELSEIF condition THEN if_block)* (ELSE if_block)?;
 

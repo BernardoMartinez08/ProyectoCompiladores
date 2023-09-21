@@ -14,6 +14,9 @@ instructions:
     | function_call;
 
 
+//VARIABLE ASSIGNMENT SINTAXIS
+
+variable_assignment: ID ASSIGN expression SEMI_COLON;
 
 //VARIABLE SINTAXIS
 variable: VAR variable_declaration+;
