@@ -16,3 +16,6 @@ main_procedure:
     BEGIN
     instructions*
     END DOT EOF;
+
+
+WS: [ \t\r\n]+ -> skip;
