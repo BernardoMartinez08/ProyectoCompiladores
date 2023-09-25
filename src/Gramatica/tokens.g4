@@ -96,7 +96,6 @@ ID:[a-zA-Z][a-zA-Z0-9]*([_][a-zA-Z0-9]+)*;
 COMENTARIO:'{' ~('}' |'\r'|'\n')* '}'->skip;
 
 CADENA_COMILLA_SIMPLE : '\'' ( ESC | ~'\'' )* '\'';
-STRING_CONTENT: '\'' (ESC | ~('\\' | '"'))* '\'';
 
 fragment ESC :   '\\' (["\\/bfnrt] | UNICODE) ;
 fragment UNICODE : 'u' HEX HEX HEX HEX ;
