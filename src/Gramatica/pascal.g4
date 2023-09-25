@@ -12,7 +12,6 @@ main_procedure:
     (function_declaration)*
     (procedure_declaration)*
 
-
     BEGIN
     instructions*
     END DOT EOF;

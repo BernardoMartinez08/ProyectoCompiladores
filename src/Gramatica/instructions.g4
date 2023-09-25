@@ -11,13 +11,17 @@ if_block: BEGIN instructions* END SEMI_COLON;
 if: if_statement;
 
 //INSTRUCTION FOR SINTAXIS
-for: FOR (ID | LETTERS) ASSIGN (ID | NUMBERS | LETTERS) TO (ID | NUMBERS) TO for_code_block;
-for_code_block: BEGIN instructions* END | instructions;
+for: FOR (ID | LETTERS) ASSIGN (ID | NUMBERS | LETTERS) TO (ID | NUMBERS) DO for_code_block;
+for_code_block:
+    BEGIN instructions* END SEMI_COLON
+    | instructions SEMI_COLON;
 
 
 //INSTRUCTION WHILE SINTAXIS
 while: WHILE ID (compare_operators) (ID | NUMBERS) DO while_code_block ;
-while_code_block: BEGIN instructions* END | instructions;
+while_code_block:
+    BEGIN instructions* END SEMI_COLON
+    | instructions SEMI_COLON;
 
 
 
