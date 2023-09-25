@@ -27,13 +27,15 @@ constant_types:
     | const_char;
 
 variable_declaration:
-    variable_list COLON variable_type SEMI_COLON
+    variable_item COLON variable_type SEMI_COLON
+    |variable_list COLON variable_type SEMI_COLON
     | array_variable
-    | arraylist_variable;
+    | arraylist_variable
+    ;
 
 variable_list: (variable_item (COMA variable_item)*)?;
 
-variable_item: ID;
+variable_item: ID|LETTERS;
 
 variable_type:
     INTEGER
@@ -135,4 +137,6 @@ procedure_body:
     END SEMI_COLON;
 
 procedure_call: ID BRACKET_LEFT arguments BRACKET_RIGHT;
+
+WS: [ \t\r\n]+ -> skip;
 
