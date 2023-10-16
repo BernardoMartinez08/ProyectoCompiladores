@@ -1,7 +1,7 @@
 package Code;
-import Pascal.pascalParser;
 import org.antlr.v4.runtime.Parser;
 import org.antlr.v4.runtime.TokenStream;
+import Pascal.pascalParser;
 
 public class CustomParser extends pascalParser{
     public CustomParser(TokenStream input) {

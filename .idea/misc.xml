@@ -6,8 +6,8 @@
         <PerGrammarGenerationSettings>
           <option name="fileName" value="$PROJECT_DIR$/src/Gramatica/pascal.g4" />
           <option name="autoGen" value="true" />
-          <option name="outputDir" value="C:\Users\AxelM\Downloads\ProyectoCompi_Git\src" />
-          <option name="libDir" value="C:\Users\AxelM\Downloads\ProyectoCompi_Git\src\Gramatica" />
+          <option name="outputDir" value="C:\Users\bernardo08\IdeaProjects\ProyectoCompiladores\src" />
+          <option name="libDir" value="" />
           <option name="encoding" value="" />
           <option name="pkg" value="Pascal" />
           <option name="language" value="Java" />
