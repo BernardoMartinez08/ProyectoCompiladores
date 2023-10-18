@@ -44,7 +44,6 @@ public class Compiler extends JFrame {
         RUNButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
                 model = (DefaultTableModel) table1.getModel();
                 model.setRowCount(0);
 
@@ -66,35 +65,26 @@ public class Compiler extends JFrame {
                 parser.removeErrorListeners();
                 parser.addErrorListener(errorListener);
 
-                parser.main_procedure();
+                // Llamar a la regla de inicio del análisis sintáctico
+                CustomParser.Main_procedureContext tree = parser.main_procedure();
 
-                // Obtener la lista de errores después del análisis
-                List<String> errores = errorListener.getErrorMessages();
-
-
-
-                if(errores.size()>0){
-
-
-                    int rowsSize = errores.size();
-
-
-                    for(int i=0;i<rowsSize;i++){
-                        Object[]rows = new Object[1];
-                        rows[0] = errores.get(i);
-                        model.addRow(rows);
+                // Verificar si hubo errores durante el análisis sintáctico
+                if (errorListener.getErrorMessages().isEmpty()) {
+                    // Si no hubo errores, imprime el árbol AST
+                    System.out.println(tree.toStringTree(parser));
+                } else {
+                    // Si hay errores, imprime los mensajes de error
+                    List<String> errores = errorListener.getErrorMessages();
+                    for (String error : errores) {
+                        System.out.println(error);
                     }
-
-
-
-                }else{
-                    Object[]row = new Object[1];
-                    row[0] ="ANALISIS DE CODIGO CON EXITO!!";
-                    model.addRow(row);
                 }
 
+                // Resto del código para manejar los errores y mostrar en la GUI
+                // ...
             }
         });
+
         FINDFILEButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -139,9 +129,5 @@ public class Compiler extends JFrame {
     public static void main(String []args){
 
         Compiler compi = new Compiler();
-
-
-
     }
-
 }

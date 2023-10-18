@@ -276,7 +276,6 @@ procedure_call: ID BRACKET_LEFT arguments BRACKET_RIGHT ;
  DOT: '.';
  NUMBERS: [0-9]+;
  LETTERS: [a-zA-Z];
- ID:[a-zA-Z][a-zA-Z0-9]*([_][a-zA-Z0-9]+)*;
  TRUE:'true';
  FALSE:'false';
 
@@ -291,3 +290,5 @@ procedure_call: ID BRACKET_LEFT arguments BRACKET_RIGHT ;
  fragment UNICODE : 'u' HEX HEX HEX HEX ;
  fragment HEX : [0-9a-fA-F] ;
  WS: [ \t\r\n]+ -> skip;
+
+ ID:[a-zA-Z][a-zA-Z0-9]*([_][a-zA-Z0-9]+)*;
